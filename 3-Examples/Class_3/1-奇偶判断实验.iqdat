@@ -1,0 +1,2 @@
+date	time	group	subject	build	blocknum	trialnum	blockcode	trialcode	pretrialpause	posttrialpause	windowcenter	trialduration	trialtimeout	blocktimeout	response	correct	latency	inwindow	stimulusnumber1	stimulusitem1	stimulusvpos1	stimulushpos1	stimulusonset1
+120517	19:46:02	1	1	4.0.9.0	1	1	oddevenblk	oddnumbertrial	500	0	0	0	0	0	Ctrl+'Q'	1	6031	0	4	7	50pct	50pct	14
