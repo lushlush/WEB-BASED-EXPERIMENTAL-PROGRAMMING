@@ -1,0 +1,81 @@
+﻿Design: 奇偶判断任务，随机呈现数字1~8，被试根据数字是奇数还是偶数做出按键反应，考察个体的反应时与正确率。
+
+*****加入注视点*****
+
+step_1: 定义item (功能：呈现的独立模块内容，在本案例中即1~8，分为两种，一种是奇数，一种是偶数)
+
+<item oddnumber>
+/ 1 = "1"
+/ 2 = "3"
+/ 3 = "5"
+/ 4 = "7"
+</item>
+
+<item evennumber>
+/ 1 = "2"
+/ 2 = "4"
+/ 3 = "6"
+/ 4 = "8"
+</item>
+
+<item fixation>
+/ 1 = "+"
+</item>
+
+
+step_2：定义stimulus (功能：定义数字的呈现方式，首先是定义目标，选择规范那些刺激的格式，其次是字体，文字颜色，文字背景颜色)
+
+<text oddnumbertxt>
+/ items = oddnumber
+/ fontstyle = ("Fixedsys", 10%, false, false, false, false, 5, 1)
+/ txcolor = (255, 255, 255)
+/ txbgcolor = (0, 0, 0)
+</text>
+
+<text evennumbertxt>
+/ items = evennumber
+/ fontstyle = ("Fixedsys", 10%, false, false, false, false, 5, 1)
+/ txcolor = (255, 255, 255)
+/ txbgcolor = (0, 0, 0)
+</text>
+
+<text fixationtxt>
+/ items = fixation
+/ fontstyle = ("Arial Black", 5%, true, false, false, false, 5, 1)
+/ txcolor = (255, 255, 255)
+/ txbgcolor = (0, 0, 0)
+</text>
+
+step_3: 定义trail (功能：定义每个试次，刺激什么时候出现，接受那些被试反应，那些反应时正确的或错误的，正确或错误之后呈现什么内容)
+
+<trial oddnumbertrial>
+/ pretrialpause = 500
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1 = fixationtxt; 300 = oddnumbertxt]	
+</trial>
+
+<trial evennumbertrial>
+/ pretrialpause = 500
+/ validresponse = ("F","J")
+/ correctresponse = ("F")
+/ stimulustimes = [1 = fixationtxt; 300 = evennumbertxt]
+</trial>
+
+step_4: 定义block (功能：定义试次的呈现顺序和一些基本设定信息)
+
+<block oddevenblk>
+/ screencolor = (0, 0, 0)
+/ blockfeedback = (meanlatency,correct)
+/ trials = [1-16 = noreplace(oddnumbertrial, evennumbertrial)]
+</block>
+
+step_5: 定义experiment (功能：定义实验如何设定区块)
+
+<expt oddeventask>
+/ blocks = [1 = oddevenblk]
+</expt>
+
+
+
+
